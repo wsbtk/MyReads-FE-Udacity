@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Books extends Component {
+class Book extends Component {
     render () {
       var image = this.props.book.imageLinks ? 
       this.props.book.imageLinks.thumbnail : '';
@@ -24,10 +24,10 @@ class Books extends Component {
               </div>
             </div>
             <div className="book-title">{this.props.book.title}</div>
-            <div className="book-authors">{this.props.book.authors}</div>
+            <div className="book-authors">{this.props.book.authors && this.props.book.authors.join(', ')}</div>
           </div>
         );
     }
 }
 
-export default Books;
+export default Book;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Books from './Books';
+import Book from './Book';
 
   const shelfTypes = [
     { type: 'currentlyReading', title: 'Currently Reading' },
@@ -30,7 +30,7 @@ class ShelfRack extends Component {
                             .filter(book => book.shelf === shelf.type) 
                             .map(book => (
                               <li key = {book.id}>
-                              <Books 
+                              <Book 
                                 book = {book}
                                 bookMove = {this.props.bookMove}
                                 currentState ={shelf.type}

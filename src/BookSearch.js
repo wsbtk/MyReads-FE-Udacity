@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Books from './Books';
+import Book from './Book';
 import * as BooksAPI from './BooksAPI'
 import { Link } from 'react-router-dom'
 
@@ -52,16 +52,18 @@ class BookSearch extends Component {
               <ol className="books-grid">
                 {
                   this.state.BooksSearched.map(BooksSearched => {
-                    let state = "none";
+                    let shelf = "none";
                     this.props.books.map(book => (
-                      book.id === BooksSearched.id ? state = book.state : ''
+                      book.id === BooksSearched.id ? 
+                      shelf = book.shelf : ''                     
                     ));
+                    
                     return (
                       <li key={BooksSearched.id}>
-                      <Books 
+                      <Book 
                         book={BooksSearched}
                         bookMove = {this.props.bookMove}
-                        currentState = {state}
+                        currentState = {shelf}
                       />
                     </li>
                     )
